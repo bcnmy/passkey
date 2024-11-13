@@ -79,7 +79,7 @@
     "cjs:watch:aliases": "tsc-alias -p ./tsconfig/tsconfig.cjs.json --watch",
     "build:cjs": "tsc --project ./tsconfig/tsconfig.cjs.json && tsc-alias -p ./tsconfig/tsconfig.cjs.json && echo > ./dist/_cjs/package.json '{\"type\":\"commonjs\"}'",
     "build:esm": "tsc --project ./tsconfig/tsconfig.esm.json && tsc-alias -p ./tsconfig/tsconfig.esm.json && echo > ./dist/_esm/package.json '{\"type\": \"module\",\"sideEffects\":false}'",
-    "build:types": "tsc --project ./tsconfig/tsconfig.types.json && tsc-alias -p ./tsconfig/tsconfig.types.json",
+    "build:types": "tsc --project ./tsconfig/tsconfig.types.json && tsc-alias -p ./tsconfig/tsconfig.types.json"
   },
   "sideEffects": false,
   "simple-git-hooks": {
