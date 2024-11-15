@@ -18,16 +18,16 @@ Choose your preferred package manager:
 
 ```bash
 # npm
-npm i @biconomy/passkey
+npm i @biconomy/sdk @biconomy/passkey
 
 # yarn
-yarn add @biconomy/passkey
+yarn add @biconomy/sdk @biconomy/passkey
 
 # pnpm
-pnpm i @biconomy/passkey
+pnpm i @biconomy/sdk @biconomy/passkey
 
 # bun
-bun i @biconomy/passkey
+bun i @biconomy/sdk @biconomy/passkey
 ```
 
 # Quick Start Guide
