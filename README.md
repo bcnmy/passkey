@@ -2,7 +2,7 @@
 
 # @biconomy/passkey 🚀
 
-A WebAuthn-based passkey validator module for Biconomy's SDK (@biconomy/sdk). Enable secure transaction signing using device biometrics in your Web3 applications.
+A WebAuthn-based passkey validator module for Biconomy's SDK (@biconomy/sdk). Enable secure transaction signing using device biometrics in your Web3 Client applications (e.g. Next.js, React, etc.).
 
 ## Key Features
 
@@ -54,16 +54,13 @@ const nexusClient = await createNexusClient({
 
 // 3. Setup WebAuthn Credentials
 const webAuthnKey = await toWebAuthnKey({
-  passkeyName: "my-passkey",     // Your passkey identifier
   mode: WebAuthnMode.Register    // Use .Login for existing passkeys
 })
 
 // 4. Initialize Passkey Validator
 const passkeyValidator = await toPasskeyValidator({
   webAuthnKey,
-  signer: account,
-  accountAddress: nexusClient.account.address,
-  chainId: chain.id
+  account: nexusClient.account,
 })
 
 // 5. Install Validator Module
