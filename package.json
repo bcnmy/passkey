@@ -1,6 +1,6 @@
 {
   "name": "@biconomy/passkey",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Biconomy",
   "repository": "github:bcnmy/passkey",
   "main": "./dist/_cjs/index.js",
