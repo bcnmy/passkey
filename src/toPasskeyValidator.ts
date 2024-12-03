@@ -112,7 +112,6 @@ export type ToPasskeyValidatorParameters = Omit<
 > & {
   account: NexusAccount
   webAuthnKey: WebAuthnKey
-  chainId: number
 }
 
 /**
@@ -174,7 +173,6 @@ export type ToPasskeyValidatorParameters = Omit<
  */
 export async function toPasskeyValidator({
   webAuthnKey,
-  chainId,
   account
 }: ToPasskeyValidatorParameters): Promise<Module> {
   return toModule({
@@ -182,9 +180,14 @@ export async function toPasskeyValidator({
     address: PASSKEY_VALIDATOR_ADDRESS,
     accountAddress: account.address,
     signUserOpHash: async (userOpHash: `0x${string}`) => {
-      return signMessageUsingWebAuthn(userOpHash, chainId, [
-        { id: webAuthnKey.authenticatorId, type: "public-key" }
-      ])
+      if (!account.client?.chain) {
+        throw new Error("Chain ID is required but not found in account client")
+      }
+      return signMessageUsingWebAuthn(
+        userOpHash,
+        account.client.chain.id,
+        [{ id: webAuthnKey.authenticatorId, type: "public-key" }]
+      )
     },
     initData: encodeAbiParameters(
       [
